@@ -4,6 +4,8 @@ import banner from '../../banner.webp'
 const Banner = () => {
     return (
         <div class="hero min-h-screen" style={{
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
             background: ` url(${banner})`
         }}>
             <div class="hero-overlay bg-opacity-60"></div>

@@ -1,34 +1,35 @@
 import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Login = () => {
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+const Registration = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-
+    const navigate = useNavigate();
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useSignInWithEmailAndPassword(auth);
-    if (loading || gLoading) {
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    if (loading || updating) {
         return <Loading></Loading>
     }
 
-    const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password)
-        console.log(data)
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: data.name });
+        navigate('/home')
     };
-    if (user || gUser) {
+    if (user) {
 
     }
-    if (error || gError) {
-        switch (error?.code) {
+    if (error || updateError) {
+        switch (error?.code || updateError?.code) {
             case "auth/invalid-email":
                 toast('please give a valid email');
                 break;
@@ -40,21 +41,33 @@ const Login = () => {
         }
 
     }
-
-
-
-
-
-
-
     return (
         <div className='flex h-screen justify-center items-center'>
             <div class="card w-96 bg-base-100 shadow-xl">
                 <div class="card-body">
-                    <h2 class="text-center text-2xl font-bold">Please Login</h2>
+                    <h2 class="text-center text-2xl font-bold">Please signUp</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
 
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Name</span>
+                            </label>
+                            <input type="text"
+                                placeholder="Your Name"
+                                class="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is required'
+                                    }
+                                })}
+                            />
+                            <label class="label">
+                                {errors.name?.type === 'required' && <span class="label-text-alt text-red-700">{errors.name.message}</span>}
+
+                            </label>
+                        </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">Email</span>
@@ -89,7 +102,7 @@ const Login = () => {
                                 {...register("password", {
                                     required: {
                                         value: true,
-                                        message: 'password is required'
+                                        message: 'Password is required'
                                     },
                                     minLength: {
                                         value: 6,
@@ -103,15 +116,13 @@ const Login = () => {
 
                             </label>
                         </div>
-                        <input className='btn btn-outline btn-primary w-full max-w-xs' type="submit" value='Login' />
+                        <input className='btn btn-outline btn-primary w-full max-w-xs' type="submit" value='signUp' />
                     </form>
-                    <p>Haven't any account? <Link className='text-red-700' to='/registration'> <u>Create account.</u></Link></p>
-                    <div class="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} class="btn btn-outline btn-primary w-100">Continue with google</button>
+                    <p>Already an account? <Link className='text-red-700' to='/login'> <u>Login.</u></Link></p>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default Registration;
