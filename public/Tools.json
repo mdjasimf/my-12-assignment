@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Hand Tools",
+        "short description": "KNIPEX is worldwide known as a manufacturer of pliers for industry and professional users",
+        "img": "https://i.ibb.co/9WzWC0V/hand-tools.jpg",
+        "price": "6",
+        "minimum order quantity": "80",
+        "available quantity": "8000"
+    },
+    {
+        "name": "knipex",
+        "short description": "A hand tool is any tool that is powered by hand rather than a motor.",
+        "img": "https://i.ibb.co/4SHK6Jq/knipex.png",
+        "price": "7",
+        "minimum order quantity": "60",
+        "available quantity": "700"
+    },
+    {
+        "name": "Screw driver",
+        "short description": "A screwdriver is an essential tool used to install and remove — as well as tighten or loosen — screws",
+        "img": "https://i.ibb.co/RcNv6DW/screwdriver.jpg",
+        "price": "5",
+        "minimum order quantity": "50",
+        "available quantity": "600"
+    }
+]
