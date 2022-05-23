@@ -26,36 +26,39 @@ const OrderModal = ({ order, setOrder }) => {
     }
 
     const handleOrder = (event) => {
+        event.preventDefault();
         if (orderQuantity < order.minimumOrderQuantity) {
-            toast(`You can not order less than ${order.minimumOrderQuantity} `)
+            return toast(`You can not order less than ${order.minimumOrderQuantity} `)
         }
         if (orderQuantity > order.availableQuantity) {
-            toast(`you can not order more than ${order.availableQuantity}`)
+            return toast(`you can not order more than ${order.availableQuantity}`)
         }
-        event.preventDefault();
-        const orders = {
-            name: order.name,
-            displayName: user.displayName,
-            email: user.email,
-            phoneNumber: event.target.number.value,
-            address: event.target.address.value
-        }
-        const url = 'http://localhost:5000/orders';
-        fetch(url, {
-            method: 'post',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(orders)
+        else {
+            const orders = {
+                name: order.name,
+                displayName: user.displayName,
+                email: user.email,
+                quantity: orderQuantity,
+                phoneNumber: event.target.number.value,
+                address: event.target.address.value
+            }
+            const url = 'http://localhost:5000/orders';
+            fetch(url, {
+                method: 'post',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(orders)
 
-        })
-            .then(response => response.json())
-            .then(result => {
-                console.log(result);
-                alert('successfully item added');
-                event.target.reset();
             })
-        setOrder(null);
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result);
+                    alert('successfully item added');
+                    event.target.reset();
+                })
+            setOrder(null);
+        }
     }
 
 
