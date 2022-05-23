@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import auth from '../firebase.init';
 
-const OrderModal = ({ order }) => {
+const OrderModal = ({ order, setOrder }) => {
+    const [user] = useAuthState(auth);
     console.log(order)
     const [orderQuantity, setOrderQuantity] = useState(order.minimumOrderQuantity);
 
@@ -24,12 +27,35 @@ const OrderModal = ({ order }) => {
 
     const handleOrder = (event) => {
         if (orderQuantity < order.minimumOrderQuantity) {
-            toast('You can`t ')
+            toast(`You can not order less than ${order.minimumOrderQuantity} `)
         }
         if (orderQuantity > order.availableQuantity) {
-            toast('lsjfk')
+            toast(`you can not order more than ${order.availableQuantity}`)
         }
         event.preventDefault();
+        const orders = {
+            name: order.name,
+            displayName: user.displayName,
+            email: user.email,
+            phoneNumber: event.target.number.value,
+            address: event.target.address.value
+        }
+        const url = 'http://localhost:5000/orders';
+        fetch(url, {
+            method: 'post',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orders)
+
+        })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result);
+                alert('successfully item added');
+                event.target.reset();
+            })
+        setOrder(null);
     }
 
 
@@ -44,13 +70,15 @@ const OrderModal = ({ order }) => {
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
                     <label for="order-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="font-bold text-lg">Order for:{order.name}</h3>
+                    <h3 class="font-bold text-lg my-5">Order for:{order.name}</h3>
                     <form onSubmit={handleOrder} className='grid grid-cols-1 gap-2 justify-items-center'>
-                        <input type="text" placeholder="" class="input input-bordered input-accent w-full max-w-xs" />
+                        <input type="text" value={order.name} class="input input-bordered input-accent w-full max-w-xs" />
+                        <input type="text" value={user.displayName} class="input input-bordered input-accent w-full max-w-xs" />
+                        <input type="text" value={user.email} class="input input-bordered input-accent w-full max-w-xs" />
                         <input name='quantity' value={orderQuantity} type="text" class="input input-bordered input-accent w-full max-w-xs" />
-                        <input type="text" placeholder="Type here" class="input input-bordered input-accent w-full max-w-xs" />
-                        <input type="text" placeholder="Type here" class="input input-bordered input-accent w-full max-w-xs" />
-                        <input type="submit" value='submit' placeholder="Type here" class="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" />
+                        <input type="text" placeholder="Phone Number" name='number' class="input input-bordered input-accent w-full max-w-xs" />
+                        <input type="text" placeholder='Address' name='address' class="input input-bordered input-accent w-full max-w-xs" />
+                        <input type="submit" value='submit' class="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" />
                     </form>
                 </div>
                 <div>
