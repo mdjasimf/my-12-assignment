@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
+import useToken from '../hooks/useToken';
 
 const Registration = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -16,6 +17,13 @@ const Registration = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+
+    const [token] = useToken(user);
+
+
+
+
     if (loading || updating) {
         return <Loading></Loading>
     }
@@ -23,10 +31,9 @@ const Registration = () => {
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name });
-        navigate('/home')
     };
-    if (user) {
-
+    if (token) {
+        navigate('/home')
     }
     if (error || updateError) {
         switch (error?.code || updateError?.code) {

@@ -1,22 +1,39 @@
-import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
+import Loading from '../Shared/Loading';
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
     const [user, loading] = useAuthState(auth);
+    const navigate = useNavigate();
     useEffect(() => {
-        const getItems = async () => {
-            const email = user.email;
-            const url = `http://localhost:5000/orders?email=${email}`;
-            const { data } = await axios.get(url);
-            setOrders(data);
+        fetch(`http://localhost:5000/orders?email=${user.email}`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    localStorage.removeItem('accessToken');
+                    navigate('/')
+                }
 
-        }
-        getItems();
+                return res.json()
+            })
+            .then(data => {
+                setOrders(data)
+            });
+
     }, [user])
-    console.log(orders)
+
+    if (loading) {
+        return <Loading></Loading>
+    }
     const handleMyItemDelete = id => {
         const permit = window.confirm('Sure want to delete');
         if (permit) {
@@ -51,7 +68,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map(order =>
+                            orders?.map(order =>
                                 <tr key={order?._id}>
                                     <td>{user?.displayName}</td>
                                     <td>{order?.name}</td>

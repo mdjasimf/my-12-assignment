@@ -16,9 +16,9 @@ import MyProfile from './Pages/MyProfile';
 import AddReview from './Pages/AddReview';
 import Reviews from './Pages/Home/Reviews';
 import AllUser from './Pages/AllUser';
-import ManageTools from './Pages/ManageTools';
 import AddTools from './Pages/AddTools';
 import ManageAllOrders from './Pages/ManageAllOrders';
+import ManageTools from './Pages/Home/ManageTools';
 
 function App() {
   return (
