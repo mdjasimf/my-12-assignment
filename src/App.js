@@ -13,6 +13,11 @@ import Registration from './Pages/Registration';
 import Dashboard from './Pages/Dashboard';
 import MyOrders from './Pages/MyOrders';
 import MyProfile from './Pages/MyProfile';
+import AddReview from './Pages/AddReview';
+import Reviews from './Pages/Home/Reviews';
+import AllUser from './Pages/AllUser';
+import ManageTools from './Pages/ManageTools';
+import AddTools from './Pages/AddTools';
 
 function App() {
   return (
@@ -20,6 +25,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/addReview' element={<AddReview></AddReview>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/dashboard' element={
           <RequireAuth>
@@ -27,7 +33,11 @@ function App() {
           </RequireAuth>
         }>
           <Route index element={<MyOrders></MyOrders>}></Route>
-          <Route path='/dashboard/myprofile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='/dashboard/myProfile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='/dashboard/myReviews' element={<Reviews></Reviews>}></Route>
+          <Route path='/dashboard/allUser' element={<AllUser></AllUser>}></Route>
+          <Route path='/dashboard/manageTools' element={<ManageTools></ManageTools>}></Route>
+          <Route path='/dashboard/addTools' element={<AddTools></AddTools>}></Route>
         </Route>
         <Route path='/purchase:id' element={
           <RequireAuth>

@@ -8,30 +8,20 @@ const OrderModal = ({ order, setOrder }) => {
     console.log(order)
     const [orderQuantity, setOrderQuantity] = useState(order.minimumOrderQuantity);
 
-    const handleIncrease = (event) => {
-        event.preventDefault();
-        const addQuantity = event.target.name.value;
-        const newOrderQuantity = parseInt(orderQuantity) + parseInt(addQuantity);
+    const handleIncrease = () => {
+        const newOrderQuantity = parseInt(orderQuantity) + 1
         setOrderQuantity(newOrderQuantity)
-        event.target.name.value = '';
-
     }
-    const handleDecrease = (event) => {
-        event.preventDefault();
-        const decreaseQuantity = event.target.name.value;
-        const newOrderQuantity = parseInt(orderQuantity) - parseInt(decreaseQuantity);
+    const handleDecrease = () => {
+        const newOrderQuantity = parseInt(orderQuantity) - 1
         setOrderQuantity(newOrderQuantity)
-        event.target.name.value = '';
 
     }
 
     const handleOrder = (event) => {
         event.preventDefault();
-        if (orderQuantity < order.minimumOrderQuantity) {
-            return toast(`You can not order less than ${order.minimumOrderQuantity} `)
-        }
         if (orderQuantity > order.availableQuantity) {
-            return toast(`you can not order more than ${order.availableQuantity}`)
+            return toast(``)
         }
         else {
             const orders = {
@@ -39,6 +29,7 @@ const OrderModal = ({ order, setOrder }) => {
                 displayName: user.displayName,
                 email: user.email,
                 quantity: orderQuantity,
+                price: event.target.price.value,
                 phoneNumber: event.target.number.value,
                 address: event.target.address.value
             }
@@ -79,20 +70,24 @@ const OrderModal = ({ order, setOrder }) => {
                         <input type="text" value={user.displayName} class="input input-bordered input-accent w-full max-w-xs" />
                         <input type="text" value={user.email} class="input input-bordered input-accent w-full max-w-xs" />
                         <input name='quantity' value={orderQuantity} type="text" class="input input-bordered input-accent w-full max-w-xs" />
+                        {
+                            orderQuantity < order.minimumOrderQuantity && <h1 className='text-red-500'>You can not order less than {order.minimumOrderQuantity} </h1>
+                        }
+                        {
+                            orderQuantity > order.availableQuantity && <h1 className='text-red-500'>you can not order more than {order.availableQuantity}</h1>
+                        }
+                        <input name='price' value={parseInt(orderQuantity) * parseInt(order.price)} type="text" class="input input-bordered input-accent w-full max-w-xs" />
                         <input type="text" placeholder="Phone Number" name='number' class="input input-bordered input-accent w-full max-w-xs" />
                         <input type="text" placeholder='Address' name='address' class="input input-bordered input-accent w-full max-w-xs" />
-                        <input type="submit" value='submit' class="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" />
+                        {
+                            orderQuantity < order.minimumOrderQuantity || orderQuantity > order.availableQuantity ? <input disabled type="submit" value='submit' class="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" /> :
+                                <input type="submit" value='submit' class="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" />
+                        }
                     </form>
                 </div>
                 <div>
-                    <form onSubmit={handleIncrease}>
-                        <input type="text" name='name' placeholder="Type number" class="input input-bordered input-accent w-30" />
-                        <button class="btn btn-xs">Increase Quantity</button>
-                    </form>
-                    <form onSubmit={handleDecrease}>
-                        <input type="text" name='name' placeholder="Type number" class="input input-bordered input-accent w-30" />
-                        <button class="btn btn-xs">Decrease Quantity</button>
-                    </form>
+                    <button onClick={handleIncrease} class="btn btn-xs">Increase Quantity</button>
+                    <button onClick={handleDecrease} class="btn btn-xs">Decrease Quantity</button>
                 </div>
             </div>
         </div>

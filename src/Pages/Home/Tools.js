@@ -18,7 +18,7 @@ const Tools = () => {
     return (
         <div>
             <h1 className='text-center text-3xl font-bold my-5'>Tools</h1>
-            <div className='flex justify-center'>
+            <div className='lg:flex lg:justify-center'>
                 {
                     tools?.slice(0, 3).map(tool => <div key={tool._id} class="card lg:max-w-lg bg-base-100 shadow-xl">
                         <figure class="px-10 pt-10">

@@ -16,7 +16,7 @@ const MyOrders = () => {
         }
         getItems();
     }, [user])
-
+    console.log(orders)
     const handleMyItemDelete = id => {
         const permit = window.confirm('Sure want to delete');
         if (permit) {
@@ -26,21 +26,47 @@ const MyOrders = () => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    const remaining = orders.filter(myItem => myItem._id !== id)
+                    const remaining = orders.filter(order => order._id !== id)
                     setOrders(remaining);
                 })
         }
     }
 
-
     return (
         <div>
-            {
-                orders.map(order => <div key={order._id}>
-                    <h1>{order.name}</h1><button class="btn btn-outline btn-primary btn-xs" onClick={() => handleMyItemDelete(order._id)}>Delete</button>
-
-                </div>)
-            }
+            <div class="overflow-x-auto">
+                <table class="table table-compact w-full">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Order Name</th>
+                            <th>email</th>
+                            <th>Address</th>
+                            <th>Phone Number</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Pay</th>
+                            <th>Cancel Item</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            orders.map(order =>
+                                <tr key={order?._id}>
+                                    <td>{user?.displayName}</td>
+                                    <td>{order?.name}</td>
+                                    <td>{user?.email}</td>
+                                    <td>{order?.address}</td>
+                                    <td>{order?.phoneNumber}</td>
+                                    <td>{order?.quantity}</td>
+                                    <td>{order?.price}</td>
+                                    <td><button class="btn btn-outline btn-primary btn-xs">pay</button></td>
+                                    <td><button class="btn btn-outline btn-primary btn-xs" onClick={() => handleMyItemDelete(order._id)}>Cancel</button></td>
+                                </tr>)
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

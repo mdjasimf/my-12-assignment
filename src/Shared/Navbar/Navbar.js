@@ -23,12 +23,12 @@ const Navbar = () => {
                 <>
                     <li><Link onClick={handleLogOut} to='/login'>Log out</Link></li>
                     <li><Link to='/dashboard'>Dashboard</Link></li>
+                    <li><Link to='/addReview'>Add a Reviews</Link></li>
                 </>
                 :
                 <li><Link to='/login'>Login</Link></li>
         }
         <li><Link to='/blogs'>Blogs</Link></li>
-        <li><Link to='/reviews'>Reviews</Link></li>
     </>
     return (
         <div class="navbar bg-primary">
@@ -44,6 +44,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <a class="btn btn-ghost normal-case text-xl">Metalwork Tools</a>
+            </div>
+            <div className='navbar-end'>
+                <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open Sidebar</label>
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal p-0">

@@ -6,15 +6,17 @@ const Dashboard = () => {
         <div class="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
-                <p>hi! this is dashboard</p>
                 <Outlet></Outlet>
-                <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open It</label>
             </div>
             <div class="drawer-side">
                 <label for="my-drawer-2" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 bg-slate-100 text-base-content">
                     <li><Link to='/dashboard'>My Orders</Link></li>
-                    <li><Link to='/dashboard/myprofile'>My Profile</Link></li>
+                    <li><Link to='/dashboard/myReviews'>My Reviews</Link></li>
+                    <li><Link to='/dashboard/myProfile'>My Profile</Link></li>
+                    <li><Link to='/dashboard/allUser'>All User</Link></li>
+                    <li><Link to='/dashboard/addTools'>Add tools</Link></li>
+                    <li><Link to='/dashboard/manageTools'>Manage Tools</Link></li>
                 </ul>
 
             </div>

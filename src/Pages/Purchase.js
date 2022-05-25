@@ -30,10 +30,10 @@ const Purchase = () => {
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">{tool.name}</h2>
-                        <p>{tool.shortDescription}</p>
                         <p><span className='font-bold'>Price:$ </span>{tool.price}</p>
                         <p><span className='font-bold'>Your Order: </span>{tool.minimumOrderQuantity}</p>
                         <p><span className='font-bold'>AvailableQuantity: </span>{tool.availableQuantity}</p>
+                        <p>{tool.shortDescription}</p>
                         <div class="card-actions">
                             <label
                                 onClick={() => setOrder(tool)}
