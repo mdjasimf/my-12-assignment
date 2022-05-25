@@ -18,6 +18,7 @@ import Reviews from './Pages/Home/Reviews';
 import AllUser from './Pages/AllUser';
 import ManageTools from './Pages/ManageTools';
 import AddTools from './Pages/AddTools';
+import ManageAllOrders from './Pages/ManageAllOrders';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path='/dashboard/allUser' element={<AllUser></AllUser>}></Route>
           <Route path='/dashboard/manageTools' element={<ManageTools></ManageTools>}></Route>
           <Route path='/dashboard/addTools' element={<AddTools></AddTools>}></Route>
+          <Route path='/dashboard/manageAllOrders' element={<ManageAllOrders></ManageAllOrders>}></Route>
         </Route>
         <Route path='/purchase:id' element={
           <RequireAuth>

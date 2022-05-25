@@ -1,0 +1,68 @@
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+
+const ManageAllOrders = () => {
+    const [allOrders, setAllOrders] = useState([]);
+    useEffect(() => {
+        const getItems = async () => {
+            const url = 'http://localhost:5000/manageOrders';
+            const { data } = await axios.get(url);
+            setAllOrders(data);
+
+        }
+        getItems();
+    }, [])
+
+    const handleMyItemDelete = id => {
+        const permit = window.confirm('Sure want to delete');
+        if (permit) {
+            const url = `http://localhost:5000/orders/${id}`
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const remaining = allOrders.filter(order => order._id !== id)
+                    setAllOrders(remaining);
+                })
+        }
+    }
+
+    return (
+        <div>
+            <div class="mx-5 overflow-x-auto">
+                <table class="table table-compact w-full">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Order Name</th>
+                            <th>email</th>
+                            <th>Address</th>
+                            <th>Phone Number</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Cancel Item</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            allOrders.map(AllOrder =>
+                                <tr key={AllOrder?._id}>
+                                    <td>{AllOrder?.displayName}</td>
+                                    <td>{AllOrder?.name}</td>
+                                    <td>{AllOrder?.email}</td>
+                                    <td>{AllOrder?.address}</td>
+                                    <td>{AllOrder?.phoneNumber}</td>
+                                    <td>{AllOrder?.quantity}</td>
+                                    <td>{AllOrder?.price}</td>
+                                    <td><button class="btn btn-outline btn-primary btn-xs" onClick={() => handleMyItemDelete(AllOrder._id)}>Cancel</button></td>
+                                </tr>)
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    );
+};
+
+export default ManageAllOrders;

@@ -22,10 +22,10 @@ const Tools = () => {
                 {
                     tools?.slice(0, 3).map(tool => <div key={tool._id} class="card lg:max-w-lg bg-base-100 shadow-xl">
                         <figure class="px-10 pt-10">
-                            <img src={tool.img} alt="Shoes" class="rounded-xl" />
+                            <img src={tool.img} alt={tool.name} class="rounded-xl" />
                         </figure>
                         <div class="card-body items-center text-center">
-                            <h2 class="card-title">{tool.name}</h2>
+                            <h2 class="card-title"><span className='text-red-500'>{tool.name}</span></h2>
                             <p>{tool.shortDescription}</p>
                             <p><span className='font-bold'>Price:$ </span>{tool.price}</p>
                             <p><span className='font-bold'>MinimumOrderQuantity: </span>{tool.minimumOrderQuantity}</p>

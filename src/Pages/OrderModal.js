@@ -64,11 +64,15 @@ const OrderModal = ({ order, setOrder }) => {
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
                     <label for="order-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="font-bold text-lg my-5">Order for:{order.name}</h3>
+                    <h3 class="font-bold text-lg my-5">Order For: <span className='text-red-500'>{order.name}</span></h3>
                     <form onSubmit={handleOrder} className='grid grid-cols-1 gap-2 justify-items-center'>
+                        <h1>Order name</h1>
                         <input type="text" value={order.name} class="input input-bordered input-accent w-full max-w-xs" />
+                        <h1>User name</h1>
                         <input type="text" value={user.displayName} class="input input-bordered input-accent w-full max-w-xs" />
+                        <h1>Email</h1>
                         <input type="text" value={user.email} class="input input-bordered input-accent w-full max-w-xs" />
+                        <h1>Quantity</h1>
                         <input name='quantity' value={orderQuantity} type="text" class="input input-bordered input-accent w-full max-w-xs" />
                         {
                             orderQuantity < order.minimumOrderQuantity && <h1 className='text-red-500'>You can not order less than {order.minimumOrderQuantity} </h1>
@@ -76,8 +80,11 @@ const OrderModal = ({ order, setOrder }) => {
                         {
                             orderQuantity > order.availableQuantity && <h1 className='text-red-500'>you can not order more than {order.availableQuantity}</h1>
                         }
+                        <h1>Total Price</h1>
                         <input name='price' value={parseInt(orderQuantity) * parseInt(order.price)} type="text" class="input input-bordered input-accent w-full max-w-xs" />
+                        <h1>Your Number</h1>
                         <input type="text" placeholder="Phone Number" name='number' class="input input-bordered input-accent w-full max-w-xs" />
+                        <h1>Address</h1>
                         <input type="text" placeholder='Address' name='address' class="input input-bordered input-accent w-full max-w-xs" />
                         {
                             orderQuantity < order.minimumOrderQuantity || orderQuantity > order.availableQuantity ? <input disabled type="submit" value='submit' class="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" /> :
@@ -86,8 +93,8 @@ const OrderModal = ({ order, setOrder }) => {
                     </form>
                 </div>
                 <div>
-                    <button onClick={handleIncrease} class="btn btn-xs">Increase Quantity</button>
-                    <button onClick={handleDecrease} class="btn btn-xs">Decrease Quantity</button>
+                    <button onClick={handleIncrease} class="btn btn-primary btn-xs">Increase Quantity</button>
+                    <button onClick={handleDecrease} class="btn btn-primary btn-xs">Decrease Quantity</button>
                 </div>
             </div>
         </div>
