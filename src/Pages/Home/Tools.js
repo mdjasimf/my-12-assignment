@@ -5,7 +5,7 @@ import Loading from '../../Shared/Loading';
 
 const Tools = () => {
     const navigate = useNavigate();
-    const { data: tools, isLoading } = useQuery('tools', () => fetch('http://localhost:5000/tools').then(res =>
+    const { data: tools, isLoading } = useQuery('tools', () => fetch('https://dry-retreat-90563.herokuapp.com/tools').then(res =>
         res.json()
     )
     )

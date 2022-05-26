@@ -1,6 +1,17 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Metalwork Tools](https://my-12-assignment.web.app/).
+
+## The features and functionality I use in my website
+* react,react router and react hook form.
+* firebase authentication system. and I deploy my site in firebase.
+* react query ,axios and normal fetch for load data.
+* I use mongodb for store data.
+* I use jwt for secure my website.
+* I use heroku for deploy server site. 
+
+
+
 
 ## Available Scripts
 

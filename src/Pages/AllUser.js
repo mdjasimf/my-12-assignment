@@ -4,7 +4,7 @@ import Loading from '../../src/Shared/Loading';
 import User from './User';
 
 const AllUser = () => {
-    const { data: allusers, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/allUsers', {
+    const { data: allusers, isLoading, refetch } = useQuery('users', () => fetch('https://dry-retreat-90563.herokuapp.com/allUsers', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

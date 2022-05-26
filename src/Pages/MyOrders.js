@@ -10,7 +10,7 @@ const MyOrders = () => {
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`, {
+        fetch(`https://dry-retreat-90563.herokuapp.com/orders?email=${user.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -37,7 +37,7 @@ const MyOrders = () => {
     const handleMyItemDelete = id => {
         const permit = window.confirm('Sure want to delete');
         if (permit) {
-            const url = `http://localhost:5000/orders/${id}`
+            const url = `https://dry-retreat-90563.herokuapp.com/orders/${id}`
             fetch(url, {
                 method: 'DELETE'
             })

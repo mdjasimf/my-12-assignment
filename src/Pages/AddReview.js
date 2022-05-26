@@ -27,7 +27,7 @@ const Review = () => {
         if (!review.rating) {
             return alert('please fill up rating')
         }
-        const url = 'http://localhost:5000/reviews';
+        const url = 'https://dry-retreat-90563.herokuapp.com/reviews';
         fetch(url, {
             method: 'post',
             headers: {

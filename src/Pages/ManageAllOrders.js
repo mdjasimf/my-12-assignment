@@ -5,7 +5,7 @@ const ManageAllOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
     useEffect(() => {
         const getItems = async () => {
-            const url = 'http://localhost:5000/manageOrders';
+            const url = 'https://dry-retreat-90563.herokuapp.com/manageOrders';
             const { data } = await axios.get(url);
             setAllOrders(data);
 
@@ -16,7 +16,7 @@ const ManageAllOrders = () => {
     const handleMyItemDelete = id => {
         const permit = window.confirm('Sure want to delete');
         if (permit) {
-            const url = `http://localhost:5000/orders/${id}`
+            const url = `https://dry-retreat-90563.herokuapp.com/orders/${id}`
             fetch(url, {
                 method: 'DELETE'
             })

@@ -27,7 +27,7 @@ const AddTools = () => {
         if (!addTools.availableQuantity) {
             return alert('please fill up availableQuantity')
         }
-        const url = 'http://localhost:5000/addTools';
+        const url = 'https://dry-retreat-90563.herokuapp.com/addTools';
         fetch(url, {
             method: 'post',
             headers: {

@@ -33,7 +33,7 @@ const OrderModal = ({ order, setOrder }) => {
                 phoneNumber: event.target.number.value,
                 address: event.target.address.value
             }
-            const url = 'http://localhost:5000/orders';
+            const url = 'https://dry-retreat-90563.herokuapp.com/orders';
             fetch(url, {
                 method: 'post',
                 headers: {

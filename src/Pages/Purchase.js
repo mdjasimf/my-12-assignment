@@ -16,7 +16,7 @@ const Purchase = () => {
     const [tool, setTool] = useState({});
     const [order, setOrder] = useState(null)
     useEffect(() => {
-        const url = `http://localhost:5000/tools/${id}`
+        const url = `https://dry-retreat-90563.herokuapp.com/tools/${id}`
         fetch(url)
             .then(response => response.json())
             .then(data => setTool(data));

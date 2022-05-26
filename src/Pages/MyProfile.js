@@ -30,7 +30,7 @@ const MyProfile = () => {
         if (!profile.linkdineLink) {
             return alert('please fill up linkdineProfile')
         }
-        const url = 'http://localhost:5000/profile';
+        const url = 'https://dry-retreat-90563.herokuapp.com/profile';
         fetch(url, {
             method: 'post',
             headers: {

@@ -6,7 +6,7 @@ const ManageTools = () => {
     const [allTools, setAllTools] = useState([]);
     useEffect(() => {
         const getItems = async () => {
-            const url = 'http://localhost:5000/tools';
+            const url = 'https://dry-retreat-90563.herokuapp.com/tools';
             const { data } = await axios.get(url);
             setAllTools(data);
 
@@ -17,7 +17,7 @@ const ManageTools = () => {
     const handleToolDelete = id => {
         const permit = window.confirm('Sure want to delete');
         if (permit) {
-            const url = `http://localhost:5000/tools/${id}`
+            const url = `https://dry-retreat-90563.herokuapp.com/tools/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
