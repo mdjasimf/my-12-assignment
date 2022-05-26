@@ -20,6 +20,7 @@ import AddTools from './Pages/AddTools';
 import ManageAllOrders from './Pages/ManageAllOrders';
 import ManageTools from './Pages/Home/ManageTools';
 import RequireAdmin from './Pages/RequireAdmin';
+import MyPortfolio from './Pages/MyPortfolio';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/addReview' element={<AddReview></AddReview>}></Route>
+        <Route path='/myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/dashboard' element={
           <RequireAuth>

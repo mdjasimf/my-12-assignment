@@ -4,6 +4,7 @@ This project was bootstrapped with [Metalwork Tools](https://my-12-assignment.we
 
 ## The features and functionality I use in my website
 * react,react router and react hook form.
+* I use daisyui framework.
 * firebase authentication system. and I deploy my site in firebase.
 * react query ,axios and normal fetch for load data.
 * I use mongodb for store data.
