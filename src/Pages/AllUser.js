@@ -1,16 +1,15 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../src/Shared/Loading';
+import User from './User';
 
 const AllUser = () => {
-    const { data: allusers, isLoading } = useQuery('users', () => fetch('http://localhost:5000/allUsers',
-        {
-            method: 'GET',
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
+    const { data: allusers, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/allUsers', {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
-    ).then(res =>
+    }).then(res =>
         res.json()
     )
     )
@@ -31,13 +30,12 @@ const AllUser = () => {
                     </thead>
                     <tbody>
                         {
-                            allusers?.map(user =>
-                                <tr key={user?._id}>
-                                    <td>{user?.index}</td>
-                                    <td>{user?.email}</td>
-                                    <td><button class="btn btn-sm">make a adin</button></td>
-                                    <td><button class="btn btn-sm">remove</button></td>
-                                </tr>)
+                            allusers?.map(user => <User
+                                key={user._id}
+                                user={user}
+                                refetch={refetch}
+                            ></User>
+                            )
                         }
                     </tbody>
                 </table>
