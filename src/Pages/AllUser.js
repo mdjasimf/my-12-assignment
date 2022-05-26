@@ -3,7 +3,14 @@ import { useQuery } from 'react-query';
 import Loading from '../../src/Shared/Loading';
 
 const AllUser = () => {
-    const { data: allusers, isLoading } = useQuery('users', () => fetch('http://localhost:5000/allUsers').then(res =>
+    const { data: allusers, isLoading } = useQuery('users', () => fetch('http://localhost:5000/allUsers',
+        {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        }
+    ).then(res =>
         res.json()
     )
     )
