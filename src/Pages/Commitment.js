@@ -3,7 +3,7 @@ import React from 'react';
 const Commitment = () => {
     return (
         <div className='my-5'>
-            <h1 className='text-center text-4xl'>COMMITMENT</h1>
+            <h1 className='text-center text-3xl font-bold my-5'>COMMITMENT</h1>
             <div className='lg:flex lg:justify-center lg:items-center'>
                 <div class="card w-96 bg-base-100 shadow-xl">
                     <div class="card-body">

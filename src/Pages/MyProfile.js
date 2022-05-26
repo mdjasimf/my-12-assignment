@@ -49,7 +49,7 @@ const MyProfile = () => {
     }
     return (
         <div>
-            <h1 className='text-center mt-2 text-3xl text-accent'>Rate us</h1>
+            <h1 className='text-center mt-2 text-3xl text-accent'>Update your Profile</h1>
             <form onSubmit={handleProfile} className='grid grid-cols-1 gap-2 justify-items-center'>
                 <input type="text" value={user.displayName} class="input input-bordered input-accent w-full max-w-xs" />
                 <input type="text" value={user.email} class="input input-bordered input-accent w-full max-w-xs" />

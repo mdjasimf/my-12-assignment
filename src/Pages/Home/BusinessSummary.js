@@ -7,7 +7,7 @@ import revenue from '../../revenue.ico'
 const BusinessSummary = () => {
     return (
         <div className='my-5'>
-            <h1 className='text-center text-4xl font-bold my-5'>BUSINESS SUMMARY</h1>
+            <h1 className='text-center text-3xl font-bold my-5'>BUSINESS SUMMARY</h1>
             <h1 className='text-center text-4xl'>MILLION BUSINESS TRUST US</h1>
             <h4 className='text-center text-1xl'>TRY TO UNDERSTAND USER EXPECTATION</h4>
             <div>

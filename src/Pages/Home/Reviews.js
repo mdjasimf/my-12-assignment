@@ -15,7 +15,7 @@ const Reviews = () => {
 
     return (
         <div className='my-5'>
-            <h1 className='text-center text-3xl'>All reviews</h1>
+            <h1 className='text-center text-3xl font-bold my-5'>All reviews</h1>
             {
                 reviews.map(review => <div key={review._id}>
                     <div className='flex justify-center items-center'>
