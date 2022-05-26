@@ -5,7 +5,6 @@ import auth from '../firebase.init';
 
 const OrderModal = ({ order, setOrder }) => {
     const [user] = useAuthState(auth);
-    console.log(order)
     const [orderQuantity, setOrderQuantity] = useState(order.minimumOrderQuantity);
 
     const handleIncrease = () => {

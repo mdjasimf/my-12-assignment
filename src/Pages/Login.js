@@ -35,6 +35,9 @@ const Login = () => {
 
         }
 
+
+
+
     }, [error || gError]);
 
     if (loading || gLoading) {
@@ -43,14 +46,11 @@ const Login = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)
-        console.log(data)
     };
 
     if (token) {
         navigate(from, { replace: true });
     }
-
-
     return (
         <div className='flex h-screen justify-center items-center'>
             <div class="card w-96 bg-base-100 shadow-xl">
