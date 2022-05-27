@@ -45,7 +45,7 @@ const Purchase = () => {
                         <div class="card-actions">
                             <label
                                 onClick={() => setOrder(tool)}
-                                for="order-modal" class="btn btn-outline btn-primary">Purchase now
+                                for="order-modal" class="btn btn-outline btn-primary hover:rounded-full">Purchase now
                             </label>
 
                         </div>

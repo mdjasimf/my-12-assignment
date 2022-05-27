@@ -44,7 +44,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <a class="btn btn-ghost normal-case text-xl">Metalwork Tools</a>
+                <a class="btn btn-ghost normal-case text-xl">Metalwork Manufacture</a>
             </div>
             <div className='navbar-end'>
                 <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open Sidebar</label>

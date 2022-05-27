@@ -107,11 +107,11 @@ const Login = () => {
 
                             </label>
                         </div>
-                        <input className='btn btn-outline btn-primary w-full max-w-xs' type="submit" value='Login' />
+                        <input className='btn btn-outline btn-primary w-full hover:rounded-full max-w-xs' type="submit" value='Login' />
                     </form>
                     <p>Haven't any account? <Link className='text-red-700' to='/registration'> <u>Create account.</u></Link></p>
                     <div class="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} class="btn btn-outline btn-primary w-100">Continue with google</button>
+                    <button onClick={() => signInWithGoogle()} class="btn btn-outline btn-primary hover:rounded-full w-100">Continue with google</button>
                 </div>
             </div>
         </div>

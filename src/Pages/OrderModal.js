@@ -87,13 +87,13 @@ const OrderModal = ({ order, setOrder }) => {
                         <input type="text" placeholder='Address' name='address' class="input input-bordered input-accent w-full max-w-xs" />
                         {
                             orderQuantity < order.minimumOrderQuantity || orderQuantity > order.availableQuantity ? <input disabled type="submit" value='submit' class="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" /> :
-                                <input type="submit" value='submit' class="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" />
+                                <input type="submit" value='submit' class="btn btn-outline btn-primary input input-bordered input-accent w-full hover:rounded-full max-w-xs" />
                         }
                     </form>
                 </div>
                 <div>
-                    <button onClick={handleIncrease} class="btn btn-primary btn-xs">Increase Quantity</button>
-                    <button onClick={handleDecrease} class="btn btn-primary btn-xs">Decrease Quantity</button>
+                    <button onClick={handleIncrease} class="btn btn-primary hover:rounded-full btn-xs">Increase Quantity</button>
+                    <button onClick={handleDecrease} class="btn btn-primary hover:rounded-full btn-xs">Decrease Quantity</button>
                 </div>
             </div>
         </div>

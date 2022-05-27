@@ -15,11 +15,11 @@ const Reviews = () => {
 
     return (
         <div className='my-5'>
-            <h1 className='text-center text-3xl font-bold my-5'>All reviews</h1>
+            <h1 className='text-center text-3xl text-success font-bold my-5'>All reviews</h1>
             {
                 reviews.map(review => <div key={review._id}>
                     <div className='flex justify-center items-center'>
-                        <div class=" card w-50  bg-accent-100 shadow-xl">
+                        <div class="hover:scale-110 hover:ease-in duration-300 card w-50  bg-accent-100 shadow-xl">
                             <div class="card-body">
                                 <div class="w-24 flex justify-center rounded-full">
                                     <img src={review.photo} />
