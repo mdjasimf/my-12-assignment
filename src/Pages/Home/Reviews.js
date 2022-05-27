@@ -19,8 +19,8 @@ const Reviews = () => {
             {
                 reviews.map(review => <div key={review._id}>
                     <div className='flex justify-center items-center'>
-                        <div className="hover:scale-110 hover:ease-in duration-300 card w-50  bg-accent-100 shadow-xl">
-                            <div className="card-body">
+                        <div className="card w-50  bg-accent-100 shadow-xl">
+                            <div className="hover:scale-110 hover:ease-in duration-300 card-body">
                                 <div className="w-24 flex justify-center rounded-full">
                                     <img src={review.photo} />
                                 </div>
