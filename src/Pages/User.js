@@ -32,8 +32,8 @@ const User = ({ user, index, refetch }) => {
         <tr>
             <td>{index + 1}</td>
             <td>{email}</td>
-            <td>{role !== 'admin' && <button onClick={makeAdmin} class="btn btn-sm">make a adin</button>}</td>
-            <td><button class="btn btn-sm">remove</button></td>
+            <td>{role !== 'admin' && <button onClick={makeAdmin} className="btn btn-sm">make a adin</button>}</td>
+            <td><button className="btn btn-sm">remove</button></td>
         </tr>
     );
 };

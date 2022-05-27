@@ -35,18 +35,18 @@ const ManageTools = () => {
             <h1 className='text-center text-3xl font-bold my-5'>Tools</h1>
             <div className='lg:grid lg:grid-cols-3 gap-4 lg:place-content-evenly'>
                 {
-                    allTools?.map(tool => <div key={tool._id} class="card lg:max-w-lg bg-base-100 shadow-xl">
-                        <figure class="px-10 pt-10">
-                            <img src={tool.img} alt={tool.name} class="rounded-xl" />
+                    allTools?.map(tool => <div key={tool._id} className="card lg:max-w-lg bg-base-100 shadow-xl">
+                        <figure className="px-10 pt-10">
+                            <img src={tool.img} alt={tool.name} className="rounded-xl" />
                         </figure>
-                        <div class="card-body items-center text-center">
-                            <h2 class="card-title"><span className='text-red-500'>{tool.name}</span></h2>
+                        <div className="card-body items-center text-center">
+                            <h2 className="card-title"><span className='text-red-500'>{tool.name}</span></h2>
                             <p>{tool.shortDescription}</p>
                             <p><span className='font-bold'>Price:$ </span>{tool.price}</p>
                             <p><span className='font-bold'>MinimumOrderQuantity: </span>{tool.minimumOrderQuantity}</p>
                             <p><span className='font-bold'>AvailableQuantity: </span>{tool.availableQuantity}</p>
-                            <div class="card-actions">
-                                <button onClick={() => handleToolDelete(tool?._id)} class="btn btn-primary">Delete</button>
+                            <div className="card-actions">
+                                <button onClick={() => handleToolDelete(tool?._id)} className="btn btn-primary">Delete</button>
                             </div>
                         </div>
                     </div>)

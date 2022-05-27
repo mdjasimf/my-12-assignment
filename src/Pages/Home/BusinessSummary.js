@@ -40,15 +40,15 @@ const BusinessSummary = () => {
                     </div>
                 </div>
             </div>
-            <div class=" card w-full bg-base-100 shadow-xl">
+            <div className=" card w-full bg-base-100 shadow-xl">
                 <div className='flex'>
-                    <div class="card-body">
-                        <h2 class="card-title">Have any question about us or get a products request?</h2>
+                    <div className="card-body">
+                        <h2 className="card-title">Have any question about us or get a products request?</h2>
                         <p>Don't hesitate to contact us</p>
                     </div>
                     <div className='lg:mr-20 mt-10'>
-                        <button class="btn btn-info lg:mx-20 lg:w-60 hover:rounded-full">Request for quote</button>
-                        <button class="btn btn-primary lg:w-40 hover:rounded-full">Contact us</button>
+                        <button className="btn btn-info lg:mx-20 lg:w-60 hover:rounded-full">Request for quote</button>
+                        <button className="btn btn-primary lg:w-40 hover:rounded-full">Contact us</button>
                     </div>
                 </div>
             </div>

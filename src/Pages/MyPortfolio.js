@@ -4,12 +4,12 @@ const MyPortfolio = () => {
     return (
         <div>
             <div className='flex justify-center'>
-                <div class="card w-96 bg-primary text-neutral-content">
-                    <div class="card-body items-center text-center">
-                        <h2 class="card-title">Name: Md Jasim Faqir</h2>
-                        <h2 class="card-title">Email: mdjasimf@gmail.com</h2>
-                        <h2 class="card-title">educational background: I completed BBS in 2016.</h2>
-                        <h2 class="card-title"> </h2>
+                <div className="card w-96 bg-primary text-neutral-content">
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title">Name: Md Jasim Faqir</h2>
+                        <h2 className="card-title">Email: mdjasimf@gmail.com</h2>
+                        <h2 className="card-title">educational background: I completed BBS in 2016.</h2>
+                        <h2 className="card-title"> </h2>
                         <h1 className='text-2xl'><u>list of technologies or skills:</u></h1>
                         <ol>
                             <li>1.html</li>

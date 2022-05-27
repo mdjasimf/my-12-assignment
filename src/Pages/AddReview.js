@@ -50,11 +50,11 @@ const Review = () => {
         <div>
             <h1 className='text-center mt-2 text-3xl text-accent'>Rate us</h1>
             <form onSubmit={handelReviwes} className='grid grid-cols-1 gap-2 justify-items-center'>
-                <input type="text" placeholder="Write something" name='description' class="input input-bordered input-accent w-full max-w-xs" />
-                <input type="text" placeholder='your photos' name='photo' class="input input-bordered input-accent w-full max-w-xs" />
-                <input type="text" placeholder='your name' name='name' class="input input-bordered input-accent w-full max-w-xs" />
-                <input type="text" placeholder='Ratings' name='ratings' class="input input-bordered input-accent w-full max-w-xs" />
-                <input type="submit" value='submit' class="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" />
+                <input type="text" placeholder="Write something" name='description' className="input input-bordered input-accent w-full max-w-xs" />
+                <input type="text" placeholder='your photos' name='photo' className="input input-bordered input-accent w-full max-w-xs" />
+                <input type="text" placeholder='your name' name='name' className="input input-bordered input-accent w-full max-w-xs" />
+                <input type="text" placeholder='Ratings' name='ratings' className="input input-bordered input-accent w-full max-w-xs" />
+                <input type="submit" value='submit' className="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" />
             </form>
         </div>
     );

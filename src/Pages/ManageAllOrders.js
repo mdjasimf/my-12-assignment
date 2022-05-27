@@ -35,8 +35,8 @@ const ManageAllOrders = () => {
 
     return (
         <div>
-            <div class="mx-5 overflow-x-auto">
-                <table class="table table-compact w-full">
+            <div className="mx-5 overflow-x-auto">
+                <table className="table table-compact w-full">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -65,7 +65,7 @@ const ManageAllOrders = () => {
                                         {
                                             !AllOrder.paid ? <>
                                                 <h1>unpaid</h1>
-                                                <button class="btn btn-outline btn-primary btn-xs" onClick={() => handleMyItemDelete(AllOrder._id)}>Cancel Order</button>
+                                                <button className="btn btn-outline btn-primary btn-xs" onClick={() => handleMyItemDelete(AllOrder._id)}>Cancel Order</button>
                                             </> :
                                                 <h1>pending</h1>
                                         }

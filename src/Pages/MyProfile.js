@@ -51,13 +51,13 @@ const MyProfile = () => {
         <div>
             <h1 className='text-center mt-2 text-3xl text-accent'>Update your Profile</h1>
             <form onSubmit={handleProfile} className='grid grid-cols-1 gap-2 justify-items-center'>
-                <input type="text" value={user.displayName} class="input input-bordered input-accent w-full max-w-xs" />
-                <input type="text" value={user.email} class="input input-bordered input-accent w-full max-w-xs" />
-                <input type="text" placeholder='education' name='education' class="input input-bordered input-accent w-full max-w-xs" />
-                <input type="text" placeholder='linkdie profile' name='linkdineLink' class="input input-bordered input-accent w-full max-w-xs" />
-                <input type="text" placeholder='phone number' name='phoneNumber' class="input input-bordered input-accent w-full max-w-xs" />
-                <input type="text" placeholder='Your district' name='location' class="input input-bordered input-accent w-full max-w-xs" />
-                <input type="submit" value='submit' class="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" />
+                <input type="text" value={user.displayName} className="input input-bordered input-accent w-full max-w-xs" />
+                <input type="text" value={user.email} className="input input-bordered input-accent w-full max-w-xs" />
+                <input type="text" placeholder='education' name='education' className="input input-bordered input-accent w-full max-w-xs" />
+                <input type="text" placeholder='linkdie profile' name='linkdineLink' className="input input-bordered input-accent w-full max-w-xs" />
+                <input type="text" placeholder='phone number' name='phoneNumber' className="input input-bordered input-accent w-full max-w-xs" />
+                <input type="text" placeholder='Your district' name='location' className="input input-bordered input-accent w-full max-w-xs" />
+                <input type="submit" value='submit' className="btn btn-outline btn-primary input input-bordered input-accent w-full max-w-xs" />
             </form>
         </div>
     );
