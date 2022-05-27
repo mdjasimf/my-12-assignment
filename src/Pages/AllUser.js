@@ -22,7 +22,7 @@ const AllUser = () => {
                 <table class="table table-compact w-full">
                     <thead>
                         <tr>
-                            <th>no</th>
+                            <th>serial no</th>
                             <th>email</th>
                             <th>make a admin</th>
                             <th>email</th>
@@ -30,8 +30,9 @@ const AllUser = () => {
                     </thead>
                     <tbody>
                         {
-                            allusers?.map(user => <User
+                            allusers?.map((user, index) => <User
                                 key={user._id}
+                                index={index}
                                 user={user}
                                 refetch={refetch}
                             ></User>

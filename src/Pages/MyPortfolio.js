@@ -7,7 +7,7 @@ const MyPortfolio = () => {
                 <div class="card w-96 bg-neutral text-neutral-content">
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Name: Md Jasim Faqir</h2>
-                        <h2 class="card-title">Email: mdjasim@gmail.com</h2>
+                        <h2 class="card-title">Email: mdjasimf@gmail.com</h2>
                         <h2 class="card-title">educational background: I completed BBS in 2016.</h2>
                         <h2 class="card-title">list of technologies or skills: 1.html</h2>
                         <ol>

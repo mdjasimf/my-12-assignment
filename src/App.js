@@ -21,6 +21,7 @@ import ManageAllOrders from './Pages/ManageAllOrders';
 import ManageTools from './Pages/Home/ManageTools';
 import RequireAdmin from './Pages/RequireAdmin';
 import MyPortfolio from './Pages/MyPortfolio';
+import Payment from './Pages/Payment';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         }>
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='/dashboard/myProfile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='/dashboard/payment/:id' element={<Payment></Payment>}></Route>
           <Route path='/dashboard/addReview' element={<AddReview></AddReview>}></Route>
           <Route path='/dashboard/allUser' element={<RequireAdmin>
             <AllUser></AllUser>
