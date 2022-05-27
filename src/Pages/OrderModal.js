@@ -44,7 +44,7 @@ const OrderModal = ({ order, setOrder }) => {
                 .then(response => response.json())
                 .then(result => {
                     console.log(result);
-                    alert('successfully item added');
+                    toast.success('successful');
                     event.target.reset();
                 })
             setOrder(null);

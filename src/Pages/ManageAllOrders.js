@@ -6,7 +6,12 @@ const ManageAllOrders = () => {
     useEffect(() => {
         const getItems = async () => {
             const url = 'https://dry-retreat-90563.herokuapp.com/manageOrders';
-            const { data } = await axios.get(url);
+            const { data } = await axios.get(url, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
             setAllOrders(data);
 
         }
@@ -55,7 +60,18 @@ const ManageAllOrders = () => {
                                     <td>{AllOrder?.phoneNumber}</td>
                                     <td>{AllOrder?.quantity}</td>
                                     <td>{AllOrder?.price}</td>
-                                    <td><button class="btn btn-outline btn-primary btn-xs" onClick={() => handleMyItemDelete(AllOrder._id)}>Cancel</button></td>
+                                    <td>
+
+                                        {
+                                            !AllOrder.paid ? <>
+                                                <h1>unpaid</h1>
+                                                <button class="btn btn-outline btn-primary btn-xs" onClick={() => handleMyItemDelete(AllOrder._id)}>Cancel Order</button>
+                                            </> :
+                                                <h1>pending</h1>
+                                        }
+
+
+                                    </td>
                                 </tr>)
                         }
                     </tbody>
